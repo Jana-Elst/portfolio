@@ -2,12 +2,18 @@
 import Base from "./Base.astro";
 ---
 
+<style>
+  .md {
+    margin: 1rem;
+  }
+</style>
+
 <Base>
   <div class="cols container">
     <slot name="top" class="top" />
     <div class="md">
       <slot />
     </div>
-    <slot name="sidebar" class="extra" />
+    <slot name="gallery" class="extra" />
   </div>
 </Base>

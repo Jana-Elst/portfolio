@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Markdown from "../../layouts/Markdown.astro";
+import Button from "../../components/Button.astro";
 import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
@@ -15,41 +16,194 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
+<style>
+  .intro {
+    font-size: var(--fs-2);
+    font-weight: 200;
+    line-height: 140%;
+    margin: 1rem;
+  }
+
+  .tags {
+    font-size: var(--fs-0);
+    font-weight: 300;
+    display: flex;
+    margin: 1rem;
+    margin-top: 0rem;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: var(--fs-4);
+    font-weight: 600;
+    line-height: 110%;
+    text-transform: uppercase;
+    margin: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .image--header {
+    height: 70dvh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .image--content {
+    width: 70%;
+    margin: 6rem auto;
+    margin-bottom: 4rem;
+  }
+
+  .links {
+    text-align: end;
+    margin: 4rem 1rem;
+    /* margin-top: 2rem; */
+  }
+
+  .link {
+    line-height: 100%;
+  }
+
+  .link + .link {
+    margin-top: 1rem;
+  }
+
+  dl {
+    margin: 4rem 1rem;
+  }
+
+  dt {
+    font-weight: 300;
+    line-height: normal;
+    font-size: var(--fs--1);
+    margin-bottom: 0.5rem;
+  }
+
+  dt::before {
+    content: "[";
+  }
+
+  dt::after {
+    content: "]";
+  }
+
+  dt ~ dt {
+    margin-top: 2rem;
+  }
+
+  dd {
+    font-size: var(--fs-1);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* dd + dd,
+  dd:has(+ dd) {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  dd + dd::before,
+  dd:has(+ dd)::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    top: 0;
+  } */
+
+  .summary {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 0.3rem;
+  }
+
+  .summary li:has(+ li):after {
+    content: ",";
+  }
+
+  .gallery {
+    margin: 1rem;
+    margin-top: 6rem;
+  }
+
+  .gallery li + li {
+    margin-top: 2rem;
+  }
+
+  .btn-back {
+    display: grid;
+    justify-content: center;
+    margin: 4rem 0;
+  }
+</style>
+
 <Markdown>
   <div slot="top">
-    <Image
-      width="300"
-      height="300"
-      src={entry.data.preview}
-      alt=""
-      class="image"
-    />
-    <h2>{entry.data.title}</h2>
+    <Button btnText="back" btnURL="" btnFunction="back" />
 
-    {
-      entry.data.links.map((l) => (
-          <a href={l.link}>{l.name}</a>
-      ))
-    }
+    <Image src={entry.data.preview} alt="" class="image image--header" />
 
-  </div>
-  <Content />
-  <div slot="sidebar" class="image_gallery">
-    <!-- <Image width="300" height="300" src={entry.data.pic} alt="" class="image" />
-    <ul>
+    <h2 class="title">{entry.data.title}</h2>
+    <ul class="tags">
+      {entry.data.tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+
+    <dl>
+      <dt>year</dt>
+      <dd>{entry.data.year}</dd>
+
+      <dt>partners</dt>
+      {entry.data.partners.map((partner) => <dd class="">{partner}</dd>)}
+
+      <dt>services</dt>
+      <dd>
+        <ul class="summary">
+          {entry.data.services.map((service) => <li>{service}</li>)}
+        </ul>
+      </dd>
+
+      <dt>tools</dt>
+      <dd>
+        <ul class="summary">
+          {entry.data.tools.map((tools) => <li>{tools}</li>)}
+        </ul>
+      </dd>
+    </dl>
+
+    <p class="intro">
+      {entry.data.description}
+    </p>
+
+    <ul class="links">
       {
-        entry.data.pics.map((picture) => (
-          <li>
-            <Image
-              width="300"
-              height="300"
-              src={picture}
-              alt=""
-              class="image"
-            />
+        entry.data.links.map((l) => (
+          <li class="link">
+            <Button btnText={l.name} btnURL={l.link} btnFunction="link" />
           </li>
         ))
       }
-    </ul> -->
+    </ul>
+
+    <Image src={entry.data.pics[0]} alt="" class="image image--content" />
+  </div>
+
+  <Content />
+
+  <div slot="gallery" class="gallery">
+    <ul>
+      {
+        entry.data.pics.map((pic) => (
+          <li class="">
+            <Image src={pic} alt="" class="image image--gallery" />
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="btn-back">
+      <Button btnText="back" btnURL="" btnFunction="center" />
+    </div>
   </div>
 </Markdown>

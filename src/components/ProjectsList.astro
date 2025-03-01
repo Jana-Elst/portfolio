@@ -1,0 +1,17 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+const { projects } = Astro.props;
+---
+<style>
+    ul {
+        margin: 3rem 1rem;
+    }
+
+    li + li {
+        margin-top: 3rem;
+    }
+</style>
+
+<ul>
+    {projects.map((project) => <li><ProjectCard project={project}/></li>)}
+</ul>

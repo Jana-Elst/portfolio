@@ -4,6 +4,9 @@ description: A research project resulting in a phygital workshop for residents o
 preview: /src/images/projects/master_thesis/master_thesis-1.jpg
 pics:
     - /src/images/projects/master_thesis/master_thesis-1.jpg
+    - /src/images/projects/master_thesis/master_thesis-1.jpg
+    - /src/images/projects/master_thesis/master_thesis-1.jpg
+    - /src/images/projects/master_thesis/master_thesis-1.jpg
 links:
     -   name: read the full thesis (NE)
         link: https://lib.ugent.be/catalog/rug01:003150336
@@ -13,7 +16,7 @@ links:
         link: https://lib.ugent.be/catalog/rug01:003150336
 year: 2023
 partners:
-    - Ghent University
+    - Ghent University I master's thesis
     - Royal Museum of Fine Arts Belgium (KMSKB)
 services:
     - Design Thinking
@@ -28,8 +31,10 @@ tools:
 device: []
 role: individual student work
 tags:
-    - User Research
+    - user research
+    - concept development
 draft: true
+permalink: projects/master-thesis/
 ---
 This project focused on designing an inclusive, sensory-based workshop for visitors with non-congenital brain injuries and elderly residents in care centres at the Royal Museums of Fine Arts of Belgium (KMSKB). The goal was to create a "phygital" (physical + digital) tool that enhances the museum experience by engaging multiple senses, offering an accessible and enriching interaction with art.
 

@@ -1,5 +1,5 @@
 ---
-title: Master's Thesis
+title: Printplay
 description: A research project resulting in a phygital workshop for residents of residential care centres and visitors of day centres, where visual art is explored inclusively and in a user-friendly manner, engaging various senses through techniques drawn from reminiscence therapy.
 preview: /src/images/projects/master_thesis/master_thesis-1.jpg
 pics:
@@ -30,6 +30,7 @@ role: individual student work
 tags:
     - User Research
 draft: true
+permalink: projects/master-thesis/
 ---
 This project focused on designing an inclusive, sensory-based workshop for visitors with non-congenital brain injuries and elderly residents in care centres at the Royal Museums of Fine Arts of Belgium (KMSKB). The goal was to create a "phygital" (physical + digital) tool that enhances the museum experience by engaging multiple senses, offering an accessible and enriching interaction with art.
 

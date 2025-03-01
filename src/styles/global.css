@@ -1,12 +1,26 @@
 :root {
+  --color-black: #191A23;
+
+  --color-text: var(--color-black);
+
+  
+  --fs--1: 0.875rem;
+  --fs-0: 1rem;
+  --fs-1: 1.125rem;
+  --fs-2: 1.75rem;
+  --fs-3: 2rem;
+  --fs-4: 3rem;
+
+  --line-height: 150%
 }
 
 
 
 html {
   box-sizing: border-box;
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
+
 *,
 *::before,
 *::after {
@@ -30,6 +44,24 @@ img {
   border: 0;
 }
 
-
 body {
+  font-size: var(--fs-1);
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1, "cv11" on;
+  line-height: var(--line-height);
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--fs-1);
+  padding-top: 2rem;
+  padding-bottom: 0.25rem;
+}
+
+p {
+  line-height: 160%;
+  font-size: var(--fs-1);
+  font-weight: 400;
 }

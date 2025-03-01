@@ -1,8 +1,4 @@
 ---
-// https://docs.astro.build/en/guides/fonts/#using-fontsource
-// import "@fontsource-variable/space-grotesk";
-
-// https://docs.astro.build/en/guides/styling/#import-a-local-stylesheet
 import "../styles/reset.css";
 import "../styles/markdown.css";
 import "../styles/global.css";
@@ -16,12 +12,16 @@ import Footer from "../components/Footer.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>CCK | Creative Code Kortrijk</title>
+
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    <title>Jana I Portfolio</title>
+
   </head>
   <body>
     <Header />
     <main>
-      <!-- https://docs.astro.build/en/basics/astro-components/#slots -->
       <slot />
     </main>
     <Footer />

@@ -1,0 +1,56 @@
+---
+const { btnText, btnURL, btnFunction } = Astro.props;
+---
+
+<style>
+    div {
+        margin: 1rem;
+        font-weight: 300;
+    }
+
+    div a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+    .btn--back::before {
+        content: "<--";
+        padding-right: 0.5rem;
+    }
+
+    .btn--link {
+        border-bottom: 1px solid black;
+        padding-bottom: 0.1rem;
+    }
+
+    .btn--link::after {
+        content: "↗︎";
+        padding-left: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 200;
+    }
+
+    .btn--center {
+        border-bottom: 1px solid black;
+    }
+</style>
+
+<div>
+    {
+        btnFunction === "back" ? (
+            <a class="btn--back" href={btnURL}>
+                {btnText}
+            </a>
+        ) : btnFunction === "link" ? (
+            <a class="btn--link" href={btnURL} target="_blank">
+                {btnText}
+            </a>
+        ) : btnFunction === "center" ? (
+            <a class="btn--center" href={btnURL} target="_blank">
+                {btnText}
+            </a>
+        ) : (
+            <a href={btnURL}>{btnText}</a>
+        )
+    }
+</div>
