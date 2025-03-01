@@ -5,16 +5,40 @@ import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 
 // 3. Define your collection(s)
-const team = defineCollection({
+// const team = defineCollection({
+//     schema: ({ image }) =>
+//         z.object({
+//             name: z.string(),
+//             function: z.string(),
+//             bio: z.string(),
+//             pic: image(),
+//             pics: z.array(image()),
+//         }),
+// });
+
+const projects = defineCollection({
     schema: ({ image }) =>
         z.object({
-            name: z.string(),
-            function: z.string(),
-            bio: z.string(),
-            pic: image(),
+            title: z.string(),
+            description: z.string(),
+            preview: image(),
             pics: z.array(image()),
-        }),
-});
+            links: z.array(
+                z.object({
+                    name: z.string(),
+                    link: z.string()
+                })
+            ),
+            year: z.number(),
+            partners: z.array(z.string()),
+            services: z.array(z.string()),
+            tools: z.array(z.string()),
+            device: z.array(z.string()).optional(),
+            role: z.string(),
+            tags: z.array(z.string()),
+            draft: z.boolean(),
+        })
+})
 
 // 4. Export a single `collections` object to register your collection(s)
-export const collections = {team: team};
+export const collections = {projects: projects};

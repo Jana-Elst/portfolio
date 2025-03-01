@@ -4,7 +4,7 @@ import Markdown from "../../layouts/Markdown.astro";
 import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
-  const heroesEntries = await getCollection("team");
+  const heroesEntries = await getCollection("projects");
   return heroesEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -17,12 +17,25 @@ const { Content } = await entry.render();
 
 <Markdown>
   <div slot="top">
-    <a href="/#team">Team</a>
-    <h2><span>{entry.data.name}</span></h2>
+    <Image
+      width="300"
+      height="300"
+      src={entry.data.preview}
+      alt=""
+      class="image"
+    />
+    <h2>{entry.data.title}</h2>
+
+    {
+      entry.data.links.map((l) => (
+          <a href={l.link}>{l.name}</a>
+      ))
+    }
+
   </div>
   <Content />
-  <div slot="sidebar" class="profile">
-    <Image width="300" height="300" src={entry.data.pic} alt="" class="image" />
+  <div slot="sidebar" class="image_gallery">
+    <!-- <Image width="300" height="300" src={entry.data.pic} alt="" class="image" />
     <ul>
       {
         entry.data.pics.map((picture) => (
@@ -37,20 +50,6 @@ const { Content } = await entry.render();
           </li>
         ))
       }
-    </ul>
+    </ul> -->
   </div>
 </Markdown>
-
-<style>
-  a {
-    display: block;
-    margin-bottom: var(--sp-m);
-  }
-
-  .profile {
-    display: flex;
-    flex-flow: column;
-    align-items: end;
-    gap: var(--sp-xs);
-  }
-</style>
