@@ -4,7 +4,7 @@ const { btnText, btnURL, btnFunction } = Astro.props;
 
 <style>
     div {
-        margin: 1rem;
+        margin: 1rem 0;
         font-weight: 300;
     }
 
@@ -14,7 +14,8 @@ const { btnText, btnURL, btnFunction } = Astro.props;
     }
 
     .btn--back::before {
-        content: "<--";
+        font-family: Inter;
+        content: "←";
         padding-right: 0.5rem;
     }
 
@@ -24,33 +25,59 @@ const { btnText, btnURL, btnFunction } = Astro.props;
     }
 
     .btn--link::after {
+        font-family: Inter;
         content: "↗︎";
         padding-left: 0.5rem;
         font-size: 1.5rem;
         font-weight: 200;
     }
 
-    .btn--center {
+    .btn--top,
+    .btn--back {
+        background-color: transparent;
+        padding: 0;
+        color: var(--text-color);
+        font-weight: 300;
+        font-size: var(--fs-1);
+        border: none;
+    }
+
+    .btn--top {
         border-bottom: 1px solid black;
+        padding-bottom: 0.1rem;
     }
 </style>
 
 <div>
     {
         btnFunction === "back" ? (
-            <a class="btn--back" href={btnURL}>
-                {btnText}
-            </a>
+            <button class="btn--back">{btnText}</button>
         ) : btnFunction === "link" ? (
             <a class="btn--link" href={btnURL} target="_blank">
                 {btnText}
             </a>
-        ) : btnFunction === "center" ? (
-            <a class="btn--center" href={btnURL} target="_blank">
-                {btnText}
-            </a>
+        ) : btnFunction === "top" ? (
+            <button class="btn--top">{btnText}</button>
         ) : (
             <a href={btnURL}>{btnText}</a>
         )
     }
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttonTop = document.querySelector(".btn--top");
+        const buttonBack = document.querySelector(".btn--back");
+
+        const handleScrollToTop = () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        const handleBack = () => {
+            window.history.back();
+        };
+
+        buttonTop.addEventListener("click", handleScrollToTop);
+        buttonBack.addEventListener("click", handleBack);
+    });
+</script>

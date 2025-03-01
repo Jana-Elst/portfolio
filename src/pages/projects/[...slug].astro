@@ -21,16 +21,24 @@ const { Content } = await entry.render();
     font-size: var(--fs-2);
     font-weight: 200;
     line-height: 140%;
-    margin: 1rem;
+    margin: var(--space-s);
+
+    grid-area: intro;
   }
 
   .tags {
     font-size: var(--fs-0);
     font-weight: 300;
     display: flex;
-    margin: 1rem;
+    margin: var(--space-s);
     margin-top: 0rem;
     justify-content: space-between;
+
+    grid-area: tags;
+  }
+
+  .button {
+    padding-top: 0.125rem;
   }
 
   .title {
@@ -38,27 +46,41 @@ const { Content } = await entry.render();
     font-weight: 600;
     line-height: 110%;
     text-transform: uppercase;
-    margin: 1rem;
-    margin-top: 2rem;
+    margin: var(--space-s);
     margin-bottom: 0.5rem;
+    padding-top: 0.5rem;
+
+    grid-area: title;
   }
 
   .image--header {
     height: 70dvh;
     width: 100%;
     object-fit: cover;
+
+    grid-area: img;
   }
 
   .image--content {
     width: 70%;
     margin: 6rem auto;
     margin-bottom: 4rem;
+    max-height: 70dvh;
+    object-fit: cover;
+
+    grid-area: img--content;
   }
 
   .links {
     text-align: end;
-    margin: 4rem 1rem;
+    margin: 4rem var(--space-s);
     /* margin-top: 2rem; */
+
+    grid-area: links;
+  }
+
+  .links--content {
+    margin-top: 2rem;
   }
 
   .link {
@@ -66,11 +88,13 @@ const { Content } = await entry.render();
   }
 
   .link + .link {
-    margin-top: 1rem;
+    margin-top: var(--space-s);
   }
 
   dl {
-    margin: 4rem 1rem;
+    margin: 4rem var(--space-s);
+
+    grid-area: datalist;
   }
 
   dt {
@@ -124,7 +148,7 @@ const { Content } = await entry.render();
   }
 
   .gallery {
-    margin: 1rem;
+    margin: var(--space-s);
     margin-top: 6rem;
   }
 
@@ -137,11 +161,99 @@ const { Content } = await entry.render();
     justify-content: center;
     margin: 4rem 0;
   }
+
+  @media screen and (min-width: 48rem) {
+    .button--top {
+      grid-area: button;
+    }
+
+    dl {
+      margin: 0;
+      margin-top: var(--space-m);
+    }
+
+    .tags {
+      flex-direction: column;
+      text-wrap: nowrap;
+      justify-content: flex-end;
+      margin: 0;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: minmax(33.33%, 40%) 1fr min-content;
+      column-gap: var(--space-xs);
+      margin: 0 var(--space-m);
+
+      grid-template-areas:
+        "button . ."
+        "img img img"
+        "title title tags"
+        "datalist intro intro"
+        ". links links"
+        "img--content img--content img--content";
+    }
+
+    .intro {
+      align-self: end;
+      margin: 0;
+    }
+
+    .tags {
+      flex-direction: column;
+      text-wrap: nowrap;
+      justify-content: flex-end;
+      margin: 0;
+      margin-bottom: 0.3rem;
+    }
+
+    .title {
+      margin: 0;
+      padding: 0;
+      margin-top: var(--space-m);
+    }
+
+    .links {
+      margin: var(--space-m) 0;
+    }
+
+    .links--content {
+      margin: 0 var(--space-m);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+      padding: 0;
+    }
+
+    .image--content {
+      justify-self: center;
+      margin-top: var(--space-s);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: var(--space-s);
+      margin: var(--space-xl) var(--space-m);
+    }
+
+    .image--gallery {
+      padding: 0;
+      margin: 0;
+      max-height: 80dvh;
+      object-fit: cover;
+    }
+
+    .gallery__image:nth-child(1) {
+      grid-column: span 2;
+    }
+  }
 </style>
 
 <Markdown>
-  <div slot="top">
-    <Button btnText="back" btnURL="" btnFunction="back" />
+  <div slot="top" class="top">
+    <div class="button button--top">
+      <Button btnText="back" btnURL="" btnFunction="back" />
+    </div>
 
     <Image src={entry.data.preview} alt="" class="image image--header" />
 
@@ -191,11 +303,21 @@ const { Content } = await entry.render();
 
   <Content />
 
-  <div slot="gallery" class="gallery">
-    <ul>
+  <div slot="gallery">
+    <ul class="links links--content">
+      {
+        entry.data.links.map((l) => (
+          <li class="link">
+            <Button btnText={l.name} btnURL={l.link} btnFunction="link" />
+          </li>
+        ))
+      }
+    </ul>
+
+    <ul class="gallery">
       {
         entry.data.pics.map((pic) => (
-          <li class="">
+          <li class="gallery__image">
             <Image src={pic} alt="" class="image image--gallery" />
           </li>
         ))
@@ -203,7 +325,7 @@ const { Content } = await entry.render();
     </ul>
 
     <div class="btn-back">
-      <Button btnText="back" btnURL="" btnFunction="center" />
+      <Button btnText="back to top" btnURL="" btnFunction="top" />
     </div>
   </div>
 </Markdown>
