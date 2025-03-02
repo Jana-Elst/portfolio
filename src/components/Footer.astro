@@ -1,2 +1,119 @@
+<style>
+    .container {
+        margin: var(--space-s);
+        margin-top: var(--space-2xl);
+        padding-top: var(--space-s);
+        border-top: var(--color-text) 1px solid;
+
+        display: grid;
+        grid-template-areas:
+            "name name"
+            "contact contact"
+            "socials nav";
+    }
+
+    a {
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+    .name,
+    .contact {
+        margin-bottom: var(--space-m);
+    }
+
+    .name {
+        display: flex;
+        text-wrap: nowrap;
+        align-items: baseline;
+        gap: var(--space-m);
+        flex-wrap: wrap;
+
+        grid-area: name;
+    }
+
+    .name__title {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: var(--fs-1);
+    }
+
+    .name__subtitle {
+        font-size: var(--fs--1);
+        text-transform: lowercase;
+        font-weight: 300;
+    }
+
+    .contact a,
+    .contact p,
+    .socials a,
+    nav a {
+        font-weight: 300;
+    }
+
+    .contact {
+        grid-area: contact;
+    }
+
+    nav {
+        grid-area: nav;
+        justify-self: end;
+        align-self: end;
+        text-align: end;
+    }
+
+    .socials {
+        grid-area: socials;
+    }
+
+    @media screen and (min-width: 48rem) {
+        .container {
+            padding: var(--space-m);
+        }
+
+        .name,
+        .contact {
+            margin-bottom: var(--space-xs);
+        }
+    }
+</style>
+
 <div class="container">
+    <div class="name">
+        <p class="name__title">Jana Elst</p>
+    </div>
+
+    <div class="contact">
+        <p><a href="mailto:elst.jana@gmail.com">elst.jana@gmail.com</a></p>
+        <p>Ghent, Belgium</p>
+    </div>
+
+    <ul class="socials">
+        <li>
+            <a href="https://www.instagram.com/janaelst.be/" target="_blank"
+                >Instagram</a
+            >
+        </li>
+        <li>
+            <a href="https://www.instagram.com/janaelst.be/" target="_blank"
+                >LinkdIn</a
+            >
+        </li>
+        <li>
+            <a href="https://www.behance.net/janaelst" target="_blank"
+                >Behance</a
+            >
+        </li>
+    </ul>
+
+    <nav class="nav">
+        <ul>
+            <li>
+                <a href="/projects">Projects</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+        </ul>
+    </nav>
 </div>

@@ -14,9 +14,21 @@ allProjects.sort((a, b) => +b.data.year - +a.data.year);
         margin: 0rem 1rem;
         margin-bottom: 2rem;
     } */
+
+    .projects {
+        margin: 3rem 1rem;
+    }
+
+    @media screen and (min-width: 48rem) {
+        .projects {
+            margin: var(--space-m);
+        }
+    }
 </style>
 
 <Base title="Projects">
     <h2 class="visually-hidden">projects</h2>
-    <ProjectsList projects={allProjects} />
+    <div class="projects">
+        <ProjectsList projects={allProjects} />
+    </div>
 </Base>

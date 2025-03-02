@@ -2,7 +2,7 @@
   --color-black: #191A23;
   --color-grey: #EFEFEF;
 
-  --color-text: #fff;
+  --color-text: var(--color-black);
   --bg-color: var(--color-grey);
 
   --fs--1: 0.875rem;

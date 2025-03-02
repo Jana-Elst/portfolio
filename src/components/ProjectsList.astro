@@ -4,10 +4,6 @@ const { projects } = Astro.props;
 ---
 
 <style>
-    ul {
-        margin: 3rem 1rem;
-    }
-
     li + li {
         margin-top: 3rem;
     }
@@ -22,12 +18,6 @@ const { projects } = Astro.props;
 
         li + li {
             margin-top: 0rem;
-        }
-    }
-
-    @media screen and (min-width: 48rem) {
-        ul {
-            margin: var(--space-m);
         }
     }
 
