@@ -20,8 +20,8 @@ const { btnText, btnURL, btnFunction } = Astro.props;
     }
 
     .btn--link {
-        border-bottom: 1px solid black;
-        padding-bottom: 0.1rem;
+        /* border-bottom: 1px solid black;
+        padding-bottom: 0.1rem; */
     }
 
     .btn--link::after {
@@ -43,8 +43,79 @@ const { btnText, btnURL, btnFunction } = Astro.props;
     }
 
     .btn--top {
-        border-bottom: 1px solid black;
+        /* border-bottom: 1px solid black; */
         padding-bottom: 0.1rem;
+    }
+
+    .container__btn---link {
+        position: relative;
+        outline: none !important;
+        transition: 0.3s ease;
+    }
+
+    .container__btn---link::after {
+        content: "";
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        right: 0%;
+        height: 1px;
+        width: 100%;
+        /* transition: 0.2s; */
+    }
+
+    .container__btn---link:hover::after,
+    .container__btn---link:focus::after {
+        animation: line 1.2s ease;
+        animation-direction: normal;
+    }
+
+    .btn--back {
+        /* Additional styling */
+        position: relative;
+        outline: none !important;
+        transition: 1.2s;
+    }
+
+    .btn--back::after {
+        content: "";
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+        width: 0;
+        transition: 0.2s;
+    }
+
+    .btn--back:hover::after,
+    .btn--back:focus::after {
+        width: 100%;
+    }
+
+    @keyframes line {
+        0% {
+            width: 100%;
+            right: 0%;
+        }
+        25% {
+            width: 0%;
+            right: 0%;
+        }
+        50% {
+            width: 0%;
+            right: 100%;
+        }
+
+        75% {
+            width: 100%;
+            right: 0%;
+        }
+
+        100% {
+            width: 100%;
+            right: 0%;
+        }
     }
 </style>
 
@@ -53,11 +124,15 @@ const { btnText, btnURL, btnFunction } = Astro.props;
         btnFunction === "back" ? (
             <button class="btn--back">{btnText}</button>
         ) : btnFunction === "link" ? (
-            <a class="btn--link" href={btnURL} target="_blank">
-                {btnText}
-            </a>
+            <span class="container__btn---link">
+                <a class="btn--link" href={btnURL} target="_blank">
+                    {btnText}
+                </a>
+            </span>
         ) : btnFunction === "top" ? (
-            <button class="btn--top">{btnText}</button>
+            <div class="container__btn---link">
+                <button class="btn--top">{btnText}</button>
+            </div>
         ) : (
             <a href={btnURL}>{btnText}</a>
         )

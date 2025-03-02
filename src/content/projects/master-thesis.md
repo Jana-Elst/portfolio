@@ -19,9 +19,9 @@ links:
     -   name: read the full thesis (NE)
         link: https://lib.ugent.be/catalog/rug01:003150336
     -   name: read the extended abstract (ENG)
-        link: https://lib.ugent.be/catalog/rug01:003150336
+        link: /src/pages/projects/master-thesis/Extended_Abstract_ENG.pdf
     -   name: read the extended abstract (NE)
-        link: https://lib.ugent.be/catalog/rug01:003150336
+        link: /src/pages/projects/master-thesis/Extended_Abstract_NE.pdf
 year: 2023
 partners:
     - Ghent University I master's thesis
