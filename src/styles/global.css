@@ -1,7 +1,9 @@
 :root {
   --color-black: #191A23;
+  --color-grey: #EFEFEF;
 
-  --color-text: var(--color-black);
+  --color-text: #fff;
+  --bg-color: var(--color-grey);
 
   --fs--1: 0.875rem;
   --fs-0: 1rem;
@@ -61,6 +63,7 @@ body {
   font-feature-settings: 'liga' 1, 'calt' 1, "cv11" on;
   line-height: var(--line-height);
   font-weight: 400;
+  background-color: var(--bg-color);
 }
 
 h2 {

@@ -1,9 +1,14 @@
 ---
 title: The collector
 description: A research project resulting in a phygital workshop for residents of residential care centres and visitors of day centres, where visual art is explored inclusively and in a user-friendly manner, engaging various senses through techniques drawn from reminiscence therapy.
-preview: /src/images/projects/master_thesis/master_thesis-1.jpg
+preview: /src/images/projects/the-collector/the-collector-1.jpeg
 pics:
-    - /src/images/projects/master_thesis/master_thesis-1.jpg
+    - /src/images/projects/the-collector/the-collector-2.jpeg
+    - /src/images/projects/the-collector/the-collector-1.jpeg
+    - /src/images/projects/the-collector/the-collector-3.jpeg
+    - /src/images/projects/the-collector/the-collector-4.jpeg
+    - /src/images/projects/the-collector/the-collector-5.jpeg
+    - /src/images/projects/the-collector/the-collector-6.jpeg
 links:
     -   name: read the full thesis (NE)
         link: https://lib.ugent.be/catalog/rug01:003150336
@@ -30,7 +35,7 @@ role: individual student work
 tags:
     - User Research
 draft: true
-permalink: projects/master-thesis/
+permalink: projects/the-collector/
 ---
 This project focused on designing an inclusive, sensory-based workshop for visitors with non-congenital brain injuries and elderly residents in care centres at the Royal Museums of Fine Arts of Belgium (KMSKB). The goal was to create a "phygital" (physical + digital) tool that enhances the museum experience by engaging multiple senses, offering an accessible and enriching interaction with art.
 

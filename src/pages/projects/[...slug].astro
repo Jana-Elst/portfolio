@@ -232,7 +232,8 @@ const { Content } = await entry.render();
     .gallery {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      column-gap: var(--space-s);
+      column-gap: var(--space-m);
+      row-gap: var(--space-m);
       margin: var(--space-xl) var(--space-m);
     }
 
@@ -241,6 +242,10 @@ const { Content } = await entry.render();
       margin: 0;
       max-height: 80dvh;
       object-fit: cover;
+    }
+
+    .gallery li + li {
+      margin-top: 0;
     }
 
     .gallery__image:nth-child(1) {
@@ -316,7 +321,7 @@ const { Content } = await entry.render();
 
     <ul class="gallery">
       {
-        entry.data.pics.map((pic) => (
+        entry.data.pics.slice(1).map((pic) => (
           <li class="gallery__image">
             <Image src={pic} alt="" class="image image--gallery" />
           </li>

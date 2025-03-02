@@ -1,29 +1,27 @@
 ---
-title: Twelve tone clock
+title: Nellie Bly
 description: A research project resulting in a phygital workshop for residents of residential care centres and visitors of day centres, where visual art is explored inclusively and in a user-friendly manner, engaging various senses through techniques drawn from reminiscence therapy.
-preview: /src/images/projects/twelve-tone-clock/twelve-tone-clock-1.jpeg
+preview: ""
 pics:
-    - /src/images/projects/twelve-tone-clock/twelve-tone-clock-2.jpeg
-    - /src/images/projects/twelve-tone-clock/twelve-tone-clock-1.jpeg
-    - /src/images/projects/twelve-tone-clock/twelve-tone-clock-3.jpeg
-    - /src/images/projects/twelve-tone-clock/twelve-tone-clock-4.jpeg
+    []
 links:
-    -   name: view the final result
-        link: https://janaelst.be/clock/
-year: 2023
+    -   name: view figma prototype
+        link: https://www.figma.com/proto/BMHjT2xiLS6ZyOfMIkctI8/Nellie-Bly?page-id=407%3A182&node-id=407-183&p=f&viewport=525%2C405%2C0.06&t=s0nZi2yn6YtkovUU-1&scaling=min-zoom&content-scaling=fixed
+year: 2024
 partners:
-    - Devine I creative code 2
+    - Devine I visual design 2
 services:
-    - Concept Development
-    - Web Development
+    - web design
 tools:
-    - Javascript
+    - Figma
+    - Photoshop
+    - Procreate
 device: []
 role: individual student work
 tags:
-    - Web Development
-    - Concept Development
+    - Scrollytelling
+    - Web Design
 draft: true
-permalink: projects/twelve-tone-clock/
+permalink: projects/nellie-bly/
 ---
 This project focused on designing an inclusive, sensory-based workshop for visitors with non-congenital brain injuries and elderly residents in care centres at the Royal Museums of Fine Arts of Belgium (KMSKB). The goal was to create a "phygital" (physical + digital) tool that enhances the museum experience by engaging multiple senses, offering an accessible and enriching interaction with art.

@@ -1,12 +1,20 @@
 ---
 title: Master's Thesis
 description: A research project resulting in a phygital workshop for residents of residential care centres and visitors of day centres, where visual art is explored inclusively and in a user-friendly manner, engaging various senses through techniques drawn from reminiscence therapy.
-preview: /src/images/projects/master_thesis/master_thesis-1.jpg
+preview: /src/images/projects/master_thesis/master-thesis-1.jpeg
 pics:
-    - /src/images/projects/master_thesis/master_thesis-1.jpg
-    - /src/images/projects/master_thesis/master_thesis-1.jpg
-    - /src/images/projects/master_thesis/master_thesis-1.jpg
-    - /src/images/projects/master_thesis/master_thesis-1.jpg
+    - /src/images/projects/master_thesis/master-thesis-12.jpeg
+    - /src/images/projects/master_thesis/master-thesis-1.jpeg
+    - /src/images/projects/master_thesis/master-thesis-2.jpeg
+    - /src/images/projects/master_thesis/master-thesis-3.jpeg
+    - /src/images/projects/master_thesis/master-thesis-4.jpeg
+    - /src/images/projects/master_thesis/master-thesis-5.jpeg
+    - /src/images/projects/master_thesis/master-thesis-6.jpeg
+    - /src/images/projects/master_thesis/master-thesis-7.jpeg
+    - /src/images/projects/master_thesis/master-thesis-8.jpeg
+    - /src/images/projects/master_thesis/master-thesis-9.jpeg
+    - /src/images/projects/master_thesis/master-thesis-10.jpeg
+    - /src/images/projects/master_thesis/master-thesis-11.jpeg
 links:
     -   name: read the full thesis (NE)
         link: https://lib.ugent.be/catalog/rug01:003150336

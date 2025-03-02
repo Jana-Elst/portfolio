@@ -25,6 +25,7 @@ console.log(`${Astro.site}${project.data.permalink}`);
         line-height: normal;
 
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
         column-gap: 0.3rem;
 
@@ -32,14 +33,23 @@ console.log(`${Astro.site}${project.data.permalink}`);
         text-transform: lowercase;
     }
 
+    .tags li {
+        text-wrap: nowrap;
+    }
+
     .tags li:has(+ li):after {
         content: ",";
+    }
+
+    .image {
+        aspect-ratio: 4/3;
+        object-fit: cover;
     }
 </style>
 
 <div>
     <a href={`${Astro.site}${project.data.permalink}`}>
-        <Image src={project.data.preview} alt="" class="image image--content" />
+        <Image src={project.data.preview} alt="" class="image" />
         <h3 class="title">
             {project.data.title}
         </h3>
