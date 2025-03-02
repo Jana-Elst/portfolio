@@ -1,6 +1,82 @@
 ---
 import Base from "../layouts/Base.astro";
+import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
+
+import ProjectsList from "../components/ProjectsList.astro";
+import { getCollection } from "astro:content";
+const allProjects = await getCollection("projects");
+allProjects.sort((a, b) => +b.data.year - +a.data.year);
+const recentProjects = allProjects.slice(0, 3);
 ---
 
+<style>
+    .projects p {
+        font-weight: 200;
+        font-size: var(--fs-2);
+        line-height: 140%;
+        /* text-align: end; */
+        padding-top: var(--space-xl);
+
+        max-width: 22rem;
+    }
+
+    .projects__title {
+        display: grid;
+        /* justify-content: end; */
+        margin-bottom: var(--space-s);
+
+        grid-area: projects__title;
+    }
+
+    .projects__button {
+        grid-area: projects__button;
+        justify-self: end;
+        margin-top: var(--space-s);
+    }
+
+    .projects__content {
+        grid-area: projects__content;
+    }
+
+    .projects {
+        margin: 0 var(--space-s);
+        grid-area: projects;
+
+        display: grid;
+        grid-template-areas:
+            "projects__title"
+            "projects__content"
+            "projects__button";
+    }
+
+    @media screen and (min-width: 48rem) {
+        .projects {
+            margin: 0 var(--space-m);
+
+            grid-template-areas:
+                "projects__title projects__button"
+                "projects__content projects__content";
+            align-items: end;
+        }
+
+        .projects__button {
+            margin-bottom: var(--space-s);
+        }
+    }
+</style>
+
 <Base title="Home Page">
+    <Hero/>
+    <div class="projects">
+        <div class="projects__title">
+            <p>I strive to leave a positive mark on the world.</p>
+        </div>
+        <div class="projects__button">
+            <Button btnText="view all projects" btnURL="" btnFunction="link" />
+        </div>
+        <div class="projects__content">
+            <ProjectsList projects={recentProjects} />
+        </div>
+    </div>
 </Base>

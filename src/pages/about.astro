@@ -11,6 +11,11 @@ const recentProjects = allProjects.slice(0, 3);
 ---
 
 <style>
+    .btn-back {
+        display: grid;
+        justify-content: center;
+        margin-top: var(--space-2xl);
+    }
     span {
         font-weight: 600;
     }
@@ -177,5 +182,8 @@ const recentProjects = allProjects.slice(0, 3);
                 <ProjectsList projects={recentProjects} />
             </div>
         </div>
+    </div>
+    <div class="btn-back">
+        <Button btnText="back to top" btnURL="" btnFunction="top" />
     </div>
 </Base>
