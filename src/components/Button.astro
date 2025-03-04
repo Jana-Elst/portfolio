@@ -129,6 +129,12 @@ const { btnText, btnURL, btnFunction } = Astro.props;
                     {btnText}
                 </a>
             </span>
+        ) : btnFunction === "link-internal" ? (
+            <span class="container__btn---link">
+                <a class="btn--link" href={btnURL}>
+                    {btnText}
+                </a>
+            </span>
         ) : btnFunction === "top" ? (
             <div class="container__btn---link">
                 <button class="btn--top">{btnText}</button>
