@@ -1,26 +1,41 @@
 ---
-title: Plantin Moretus
-description: A research project resulting in a phygital workshop for residents of residential care centres and visitors of day centres, where visual art is explored inclusively and in a user-friendly manner, engaging various senses through techniques drawn from reminiscence therapy.
-preview: ""
+title: Plantin, Een drukker met pit
+description: An experimental dining concept where vegetarians with iron deficiency enjoy carefully prepared blood-based dishes, ethically sourced from dedicated meat-eaters.
+preview: /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-1.png
 pics:
-    []
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-2.png
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-1.png
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-3.jpeg
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-4.jpeg
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-5.jpeg
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-6.jpeg
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-7.jpeg
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-8.jpeg
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-9.jpeg
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-10.jpeg
+    - /src/images/projects/la-cuisine-du-sang/la-cuisine-du-sang-11.jpeg
+
 links:
     -   name: view the final result
         link: https://jana-elst.github.io/plantin/
-year: 2025
+        
+year: 2023
 partners:
     - Devine I integration 3
     - Museum Plantin-Moretus (fictional)
 services:
-    - UX, UI & Web design
-    - Web Development
     - Concept Development
+    - Web Development
+    - UX, UI & Web Design
 tools:
     - Figma
-    - Photoshop
+    - Javascript
     - Vite
-    - Javascript, CSS & HTML
-device: []
+    - HTML
+    - CSS
+    - UX
+device:
+    - desktop
 role: individual student work
 tags:
     - Scrollytelling
@@ -29,4 +44,7 @@ tags:
 draft: true
 permalink: projects/plantin-moretus/
 ---
-This project focused on designing an inclusive, sensory-based workshop for visitors with non-congenital brain injuries and elderly residents in care centres at the Royal Museums of Fine Arts of Belgium (KMSKB). The goal was to create a "phygital" (physical + digital) tool that enhances the museum experience by engaging multiple senses, offering an accessible and enriching interaction with art.
+## Concept
+A dining experience designed for vegetarians with iron deficiency, La Cuisine du Sang redefines sustainable eating by serving carefully prepared blood-based dishes. Ethically sourced from dedicated meat-eaters, the donated blood undergoes rigorous testing to ensure safety for both donors and diners.
+
+The interactive website engages visitors with a playful eligibility test to determine if they can donate blood, featuring fun interactions like dragging food into a mouth to indicate eating habits or marking a loyalty card with kisses to track recent partners. Donors are rewarded with an exclusive gourmet dining experience, ensuring their iron levels are replenished with a meat-rich feast.
