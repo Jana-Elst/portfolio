@@ -80,3 +80,7 @@ p {
   font-size: var(--fs-1);
   font-weight: 400;
 }
+
+a {
+  color: var(--color-black);
+}

@@ -36,4 +36,4 @@ tags:
 draft: true
 permalink: projects/homage-to-squares/
 ---
-This project focused on designing an inclusive, sensory-based workshop for visitors with non-congenital brain injuries and elderly residents in care centres at the Royal Museums of Fine Arts of Belgium (KMSKB). The goal was to create a "phygital" (physical + digital) tool that enhances the museum experience by engaging multiple senses, offering an accessible and enriching interaction with art. 
+This interactive web application allows users to create dynamic color compositions through hand and face gestures, inspired by Josef Albers' Homage to the Square. Using ML5.js, the software analyzes real-time movement and translates it into square-based artworks. Through this experience, users explore the interaction of colors and how they influence perception—echoing Albers’ color theory. The project is influenced by [Play a Kandinsky](/https://artsandculture.google.com/experiment/play-a-kandinsky/sgF5ivv105ukhA).

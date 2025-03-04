@@ -1,6 +1,6 @@
 ---
 title: Twelve tone clock
-description: A research project resulting in a phygital workshop for residents of residential care centres and visitors of day centres, where visual art is explored inclusively and in a user-friendly manner, engaging various senses through techniques drawn from reminiscence therapy.
+description: An interactive audiovisual experience that translates time into sound and color inspired by the principles of dodecaphony and Scriabin’s synesthetic "clavier à lumières.
 preview: /src/images/projects/twelve-tone-clock/twelve-tone-clock-1.jpeg
 pics:
     - /src/images/projects/twelve-tone-clock/twelve-tone-clock-2.jpeg
@@ -26,4 +26,6 @@ tags:
 draft: true
 permalink: projects/twelve-tone-clock/
 ---
-This project focused on designing an inclusive, sensory-based workshop for visitors with non-congenital brain injuries and elderly residents in care centres at the Royal Museums of Fine Arts of Belgium (KMSKB). The goal was to create a "phygital" (physical + digital) tool that enhances the museum experience by engaging multiple senses, offering an accessible and enriching interaction with art.
+This "clock" transforms time into sound. It is based on the principles of dodecaphony (twelve-tone music). Each hour and minute corresponds to a note in a twelve-tone series. The sounds are visualized as dynamic colors, Inspired by Scriabin’s synesthetic "clavier à lumières". The clock evolves continuously, with transformations applied to the tone series. every moment will sound different. At quarter-hour intervals, layered sounds build tension to mark significant time shifts.
+
+Users can manipulate time by adjusting tempo and note sequences, so the clock becomes an interactive audiovisual immersive experience.
