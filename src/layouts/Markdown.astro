@@ -1,0 +1,33 @@
+---
+import Base from "./Base.astro";
+---
+
+<style>
+  .md {
+    margin: 1rem;
+  }
+
+  @media screen and (min-width: 48rem) {
+    .md {
+      margin: 0 var(--space-m);
+      display: grid;
+      justify-items: center;
+    }
+
+    .md div {
+      max-width: 48rem;
+    }
+  }
+</style>
+
+<Base>
+  <div class="cols container">
+    <slot name="top" class="top" />
+    <div class="md">
+      <div>
+        <slot />
+      </div>
+    </div>
+    <slot name="gallery" class="extra" />
+  </div>
+</Base>

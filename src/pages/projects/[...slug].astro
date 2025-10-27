@@ -1,0 +1,337 @@
+---
+import { getCollection } from "astro:content";
+import Markdown from "../../layouts/Markdown.astro";
+import Button from "../../components/Button.astro";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const heroesEntries = await getCollection("projects");
+  return heroesEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<style>
+  .intro {
+    font-size: var(--fs-2);
+    font-weight: 200;
+    line-height: 140%;
+    margin: var(--space-s);
+
+    grid-area: intro;
+  }
+
+  .tags {
+    font-size: var(--fs-0);
+    font-weight: 300;
+    display: flex;
+    margin: var(--space-s);
+    margin-top: 0rem;
+    justify-content: space-between;
+
+    grid-area: tags;
+  }
+
+  .button {
+    padding-top: 0.125rem;
+    margin-left: var(--space-s);
+  }
+
+  .title {
+    font-size: var(--fs-4);
+    font-weight: 600;
+    line-height: 110%;
+    text-transform: uppercase;
+    margin: var(--space-s);
+    margin-bottom: 0.5rem;
+    padding-top: 0.5rem;
+
+    grid-area: title;
+  }
+
+  .image--header {
+    height: 70dvh;
+    width: 100%;
+    object-fit: cover;
+
+    grid-area: img;
+  }
+
+  .image--content {
+    width: 70%;
+    margin: 6rem auto;
+    margin-bottom: 4rem;
+    max-height: 70dvh;
+    object-fit: cover;
+
+    grid-area: img--content;
+  }
+
+  .links {
+    text-align: end;
+    margin: 4rem var(--space-s);
+    /* margin-top: 2rem; */
+
+    grid-area: links;
+  }
+
+  .links--content {
+    margin-top: 2rem;
+  }
+
+  .link {
+    line-height: 100%;
+  }
+
+  .link + .link {
+    margin-top: var(--space-s);
+  }
+
+  dl {
+    margin: 4rem var(--space-s);
+
+    grid-area: datalist;
+  }
+
+  dt {
+    font-weight: 300;
+    line-height: normal;
+    font-size: var(--fs--1);
+    margin-bottom: 0.5rem;
+  }
+
+  dt::before {
+    content: "[";
+  }
+
+  dt::after {
+    content: "]";
+  }
+
+  dt ~ dt {
+    margin-top: 2rem;
+  }
+
+  dd {
+    font-size: var(--fs-1);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* dd + dd,
+  dd:has(+ dd) {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  dd + dd::before,
+  dd:has(+ dd)::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    top: 0;
+  } */
+
+  .summary {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 0.3rem;
+  }
+
+  .summary li:has(+ li):after {
+    content: ",";
+  }
+
+  .gallery {
+    margin: var(--space-s);
+    margin-top: 6rem;
+  }
+
+  .gallery li + li {
+    margin-top: 2rem;
+  }
+
+  .btn-back {
+    display: grid;
+    justify-content: center;
+    margin: 4rem 0;
+  }
+
+  @media screen and (min-width: 48rem) {
+    .button--top {
+      grid-area: button;
+    }
+
+    dl {
+      margin: 0;
+      margin-top: var(--space-m);
+    }
+
+    .tags {
+      flex-direction: column;
+      text-wrap: nowrap;
+      justify-content: flex-end;
+      margin: 0;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: minmax(33.33%, 40%) 1fr min-content;
+      column-gap: var(--space-xs);
+      margin: 0 var(--space-m);
+
+      grid-template-areas:
+        "button . ."
+        "img img img"
+        "title title tags"
+        "datalist intro intro"
+        ". links links"
+        "img--content img--content img--content";
+    }
+
+    .intro {
+      align-self: end;
+      margin: 0;
+    }
+
+    .tags {
+      flex-direction: column;
+      text-wrap: nowrap;
+      justify-content: flex-end;
+      margin: 0;
+      margin-bottom: 0.3rem;
+    }
+
+    .title {
+      margin: 0;
+      padding: 0;
+      margin-top: var(--space-m);
+    }
+
+    .links {
+      margin: var(--space-m) 0;
+    }
+
+    .links--content {
+      margin: 0 var(--space-m);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+      padding: 0;
+    }
+
+    .image--content {
+      justify-self: center;
+      margin-top: var(--space-s);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: var(--space-m);
+      row-gap: var(--space-m);
+      margin: var(--space-xl) var(--space-m);
+    }
+
+    .image--gallery {
+      padding: 0;
+      margin: 0;
+      max-height: 80dvh;
+      object-fit: cover;
+    }
+
+    .gallery li + li {
+      margin-top: 0;
+    }
+
+    .gallery__image:nth-child(1) {
+      grid-column: span 2;
+    }
+  }
+</style>
+
+<Markdown>
+  <div slot="top" class="top">
+    <div class="button button--top">
+      <Button btnText="back" btnURL="" btnFunction="back" />
+    </div>
+
+    <Image src={entry.data.preview} alt="" class="image image--header" />
+
+    <h2 class="title">{entry.data.title}</h2>
+    <ul class="tags">
+      {entry.data.tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+
+    <dl>
+      <dt>year</dt>
+      <dd>{entry.data.year}</dd>
+
+      <dt>partners</dt>
+      {entry.data.partners.map((partner) => <dd class="">{partner}</dd>)}
+
+      <dt>services</dt>
+      <dd>
+        <ul class="summary">
+          {entry.data.services.map((service) => <li>{service}</li>)}
+        </ul>
+      </dd>
+
+      <dt>tools</dt>
+      <dd>
+        <ul class="summary">
+          {entry.data.tools.map((tools) => <li>{tools}</li>)}
+        </ul>
+      </dd>
+    </dl>
+
+    <p class="intro">
+      {entry.data.description}
+    </p>
+
+    <ul class="links">
+      {
+        entry.data.links.map((l) => (
+          <li class="link">
+            <Button btnText={l.name} btnURL={l.link} btnFunction="link" />
+          </li>
+        ))
+      }
+    </ul>
+
+    <Image src={entry.data.pics[0]} alt="" class="image image--content" />
+  </div>
+
+  <Content />
+
+  <div slot="gallery">
+    <ul class="links links--content">
+      {
+        entry.data.links.map((l) => (
+          <li class="link">
+            <Button btnText={l.name} btnURL={l.link} btnFunction="link" />
+          </li>
+        ))
+      }
+    </ul>
+
+    <ul class="gallery">
+      {
+        entry.data.pics.slice(1).map((pic) => (
+          <li class="gallery__image">
+            <Image src={pic} alt="" class="image image--gallery" />
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="btn-back">
+      <Button btnText="back to top" btnURL="" btnFunction="top" />
+    </div>
+  </div>
+</Markdown>

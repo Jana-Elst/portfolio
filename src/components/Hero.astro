@@ -1,0 +1,135 @@
+---
+import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
+import Button from "../components/Button.astro";
+
+const ImageJana = await getImage({
+    src: "/src/assets/jana.jpg",
+    width: 500,
+    height: 500,
+});
+---
+
+<style>
+    .container {
+        margin: var(--space-s);
+        display: grid;
+        align-items: baseline;
+        column-gap: var(--space-s);
+        grid-template-rows: 1fr min-content min-content min-content;
+        grid-template-areas:
+            "."
+            "image"
+            "intro"
+            "functions";
+        justify-items: start;
+
+        grid-area: container;
+    }
+
+    /* Image Styling */
+    .image__container {
+        grid-area: image;
+        justify-self: end;
+    }
+
+    .image {
+        object-fit: contain;
+        width: auto;
+        max-height: 30dvh;
+    }
+
+    /* Text Elements */
+    .intro {
+        grid-area: intro;
+        font-size: var(--fs-4);
+        font-weight: 600;
+        text-wrap: nowrap;
+    }
+
+    .functions {
+        grid-area: functions;
+        font-size: var(--fs-0);
+        margin: 0 var(--space-l) 0 0; /* Removes redundant margin declarations */
+    }
+
+    /* Links */
+    .links {
+        grid-area: links;
+        text-align: end;
+        justify-self: end;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+    .container__center {
+        display: grid;
+        justify-items: center;
+        min-height: 92dvh;
+        grid-template-rows: 1fr min-content min-content 1fr;
+        grid-template-columns: 1fr;
+        margin: var(--space-s);
+
+        grid-template-areas:
+            "."
+            "container"
+            "links"
+            ".";
+    }
+</style>
+
+<div class="container__center">
+    <div class="container container__hero">
+        <p class="intro">Hi, I am Jana.</p>
+        <div class="image__container image__hero">
+            <Image
+                src="/public/jana.png"
+                alt=""
+                class="image"
+                width="100"
+                height="100"
+            />
+        </div>
+        <p class="functions">
+            I'm a digital designer, creative thinker, front-end developer,
+            product designer, visual designer and travel lover.
+        </p>
+    </div>
+
+    <div class="links">
+        <Button
+            btnText="send me a mail"
+            btnURL="mailto:elst.jana@gmail.com"
+            btnFunction="link"
+        />
+        <Button
+            btnText="spot me on LinkedIn"
+            btnURL="https://www.linkedin.com/in/jana-elst-9b9598207"
+            btnFunction="link"
+        />
+    </div>
+</div>
+
+<script>
+    window.addEventListener("load", () => {
+        const intro = document.querySelector(".intro");
+        const container = document.querySelector(".container__hero");
+        const image = document.querySelector(".image__hero");
+        const functions = document.querySelector(".functions");
+
+        if (intro && container && image) {
+            const widthIntro = intro.getBoundingClientRect().width;
+            const widthImage = image.offsetWidth;
+
+            container.style.maxWidth = `${widthIntro + (widthImage / 3) * 2}px`;
+            functions.style.maxWidth = `${widthIntro}px`;
+
+            console.log("Intro width:", widthIntro);
+            console.log("Image width:", widthImage);
+            console.log("Container width:", container.offsetWidth);
+        }
+    });
+</script>

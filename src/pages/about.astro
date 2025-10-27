@@ -1,0 +1,189 @@
+---
+import Base from "../layouts/Base.astro";
+import { Image } from "astro:assets";
+import Button from "../components/Button.astro";
+
+import ProjectsList from "../components/ProjectsList.astro";
+import { getCollection } from "astro:content";
+const allProjects = await getCollection("projects");
+allProjects.sort((a, b) => +b.data.year - +a.data.year);
+const recentProjects = allProjects.slice(0, 3);
+---
+
+<style>
+    .btn-back {
+        display: grid;
+        justify-content: center;
+        margin-top: var(--space-2xl);
+    }
+    span {
+        font-weight: 600;
+    }
+
+    .image {
+        width: 100%;
+        max-height: 70dvh;
+        object-fit: cover;
+        padding: var(--space-s) 0;
+
+        grid-area: image;
+    }
+
+    .content {
+        margin: var(--space-s);
+        margin-top: var(--space-m);
+
+        grid-area: about;
+    }
+
+    .content__title {
+        font-weight: 600;
+        font-size: var(--fs-2);
+        /* padding-bottom: var(--space-2xs); */
+    }
+
+    .content p + p {
+        margin-top: var(--space-s);
+    }
+
+    .button {
+        margin: var(--space-xl) var(--space-s);
+        display: grid;
+        justify-items: end;
+        grid-area: button;
+    }
+
+    .projects p {
+        font-weight: 200;
+        font-size: var(--fs-2);
+        line-height: 140%;
+        /* text-align: end; */
+        padding-top: var(--space-xl);
+
+        max-width: 22rem;
+    }
+
+    .projects__title {
+        display: grid;
+        /* justify-content: end; */
+        margin-bottom: var(--space-s);
+    }
+
+    .projects {
+        margin: 0 var(--space-s);
+        grid-area: projects;
+    }
+
+    @media screen and (min-width: 48rem) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-auto-rows: max-content;
+            grid-template-areas:
+                "image image about about about"
+                "button button button button button"
+                "projects projects projects projects projects";
+            margin: var(--space-m);
+            column-gap: var(--space-m);
+        }
+
+        .image {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 80% center;
+        }
+
+        .content {
+            margin: 0;
+            max-width: 40rem;
+        }
+
+        .content p + p {
+            margin-top: var(--space-2xs);
+        }
+
+        .projects {
+            margin: 0;
+        }
+
+        .button {
+            margin: 0;
+            margin-top: var(--space-m);
+        }
+    }
+
+    @media screen and (min-width: 60rem) {
+        .container {
+            grid-template-columns: 1fr max-content;
+            grid-template-areas:
+                "image about"
+                "button button"
+                "projects projects";
+        }
+    }
+</style>
+
+<Base title="About Me">
+    <div class="container">
+        <h2 class="visually-hidden">About me</h2>
+        <Image
+            src="/public/jana2.jpg"
+            alt=""
+            class="image"
+            width="200"
+            height="200"
+        />
+        <div class="content">
+            <p class="content__title">Hi, I'm Jana</p>
+            <p>
+                <span>
+                    I am a digital designer, product designer, and creative
+                    coder with a passion for creating user-friendly and visually
+                    appealing digital products that make a positive impact.
+                </span>
+            </p>
+            <p>
+                I hold a Master of Science in Industrial Design Engineering
+                Technology from Ghent University (Belgium), where I developed my
+                curiosity for digital product design led me to pursue a second
+                degree in Digital Design & Development (Devine) at the Royal
+                Academy of Fine Arts (KASK) and Howest University of Applied
+                Sciences.
+            </p>
+            <p>
+                Thinking outside the box is second nature to me, and I believe
+                even the wildest ideas can lead to unique solutions.
+            </p>
+            <p>
+                For years, I was actively involved in BAZART, an art-focused
+                youth movement, where my love for creativity, culture, and
+                working with young people came together perfectly.
+            </p>
+            <p>
+                Lastly, I always carry a sketchbook, which often turns into a
+                scrapbook filled with cool finds and unexpected ideas. I love
+                exploring Europe by train and discovering great coffee spots
+                along the way. And my go-to outfit? Always a jumpsuit.
+            </p>
+            <p>I hope to get to know you better soon!</p>
+        </div>
+
+        <div class="button">
+            <Button btnText="read my resume" btnURL="/public/about-me/resume-Jana_Elst.pdf" btnFunction="link" />
+        </div>
+        <div class="projects">
+            <div class="projects__title">
+                <p>I strive to leave a positive mark on the world.</p>
+            </div>
+            <div class="projects__content">
+                <ProjectsList projects={recentProjects} />
+            </div>
+        </div>
+    </div>
+    <div class="btn-back">
+        <Button btnText="back to top" btnURL="" btnFunction="top" />
+    </div>
+</Base>

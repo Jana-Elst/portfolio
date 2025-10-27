@@ -1,0 +1,39 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+const { projects } = Astro.props;
+---
+
+<style>
+    li + li {
+        margin-top: 3rem;
+    }
+
+    @media screen and (min-width: 41rem) {
+        ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: var(--space-s);
+            row-gap: var(--space-l);
+        }
+
+        li + li {
+            margin-top: 0rem;
+        }
+    }
+
+    @media screen and (min-width: 66rem) {
+        ul {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>
+
+<ul>
+    {
+        projects.map((project) => (
+            <li>
+                <ProjectCard project={project} />
+            </li>
+        ))
+    }
+</ul>

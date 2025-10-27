@@ -1,0 +1,107 @@
+---
+
+---
+
+<style>
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+  }
+
+  .nav__title {
+    font-size: var(--fs-3);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .nav__title a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .nav__list {
+    display: flex;
+    font-weight: 300;
+  }
+
+  .nav__item a {
+    color: var(--text-color);
+    text-decoration: none;
+
+    border-bottom: 1px solid transparent; /* Initial state */
+    border-color: transparent;
+    transition: border-color 0.3s ease;
+    padding-bottom: 0.1rem;
+  }
+
+  .nav__item + .nav__item::before {
+    content: "/";
+    margin: 0.5rem;
+    text-decoration: none;
+  }
+
+  .nav__title:hover {
+    animation: wiggle 0.5s ease; /* Apply the wiggle animation on hover */
+  }
+
+  .nav__item a {
+    /* Additional styling */
+    position: relative;
+    outline: none !important;
+    transition: 1.2s;
+  }
+
+  .nav__item a::after {
+    content: "";
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    transition: 0.2s;
+  }
+
+  .nav__item a:hover::after,
+  .nav__item a:focus::after {
+    width: 100%;
+  }
+
+  @keyframes wiggle {
+    0% {
+      transform: rotate(0deg); /* Start at the original position */
+    }
+    25% {
+      transform: rotate(5deg); /* Rotate a little bit to the right */
+    }
+    50% {
+      transform: rotate(-5deg); /* Rotate a little bit to the left */
+    }
+    75% {
+      transform: rotate(5deg); /* Rotate a little bit to the right */
+    }
+    100% {
+      transform: rotate(0deg); /* End at the original position */
+    }
+  }
+
+  @media screen and (min-width: 48rem) {
+    .nav {
+      margin: var(--space-m);
+      margin-bottom: var(--space-2xs);
+    }
+  }
+</style>
+
+<header class="container">
+  <nav class="nav">
+    <h1 class="nav__title"><a href="/">Jana</a></h1>
+    <ul class="nav__list" id="nav__list">
+      <li class="nav__item"><a href="/projects">projects</a></li>
+      <li class="nav__item"><a href="/about">about</a></li>
+    </ul>
+  </nav>
+</header>

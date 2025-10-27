@@ -1,0 +1,67 @@
+---
+const { project } = Astro.props;
+import { Image } from "astro:assets";
+console.log(`${Astro.site}${project.data.permalink}`);
+---
+
+<style>
+    a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+    .title {
+        font-size: var(--fs-1);
+        font-weight: 500;
+        line-height: normal;
+        text-transform: lowercase;
+        margin-top: 1rem;
+    }
+
+    .tags {
+        font-size: var(--fs-0);
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        column-gap: 0.3rem;
+
+        margin-top: 0.125rem;
+        text-transform: lowercase;
+    }
+
+    .tags li {
+        text-wrap: nowrap;
+    }
+
+    .tags li:has(+ li):after {
+        content: ",";
+    }
+
+    .image {
+        aspect-ratio: 4/3;
+        object-fit: cover;
+
+        transition: all 0.3s ease-in-out;
+    }
+
+    a:hover .image {
+        filter: blur(2px); /* Apply blur effect */
+        opacity: 0.75; /* Slight transparency */
+    }
+</style>
+
+<div>
+    <a href={`${Astro.site}${project.data.permalink}`}>
+        <Image src={project.data.preview} alt="" class="image image__card" />
+        <h3 class="title">
+            {project.data.title}
+        </h3>
+        <ul class="tags">
+            {project.data.tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+    </a>
+</div>
